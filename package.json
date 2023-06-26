@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe safari test.js"
+    "test": "testcafe chrome test.js"
   },
   "repository": {
     "type": "git",
