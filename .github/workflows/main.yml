@@ -1,0 +1,27 @@
+name: Main
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job:
+    runs-on: safari-latest
+    steps:
+      - name: Npm install
+        run: npm ci
+    
+      - name: Run test
+        run: npm run test
+        
+      - run: |
+          sudo "/Library/Application Support/VMware Tools/vmware-resolutionSet" 1920 1080
+          sleep 5
+        if: ${{ always() }}
+        timeout-minutes: 5
+      - run: screencapture -T0 -V 5 foo.mov
+        if: ${{ always() }}
+      - uses: actions/upload-artifact@v3
+        with:
+            name: latest
+            path: foo.mov
+        if: ${{ always() }}
