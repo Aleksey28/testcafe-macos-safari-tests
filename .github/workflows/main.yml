@@ -7,6 +7,11 @@ jobs:
   job:
     runs-on: safari-latest
     steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: '16'
+
       - name: Npm install
         run: npm ci
     
