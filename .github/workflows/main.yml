@@ -9,16 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3.6.0
+      - uses: actions/setup-node@v3.6.0
         with:
           node-version: '16'
 
-      - name: Npm install
-        run: npm install
+      - run: npm install
     
-      - name: Run test
-        run: npm run test
+      - run: npm run test
         
       - run: |
           sudo "/Library/Application Support/VMware Tools/vmware-resolutionSet" 1920 1080
