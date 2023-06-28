@@ -5,7 +5,7 @@ on:
 
 jobs:
   job:
-    runs-on: macos-latest
+    runs-on: macos-11
     steps:
       - name: Add rows to the TCC.db
         run: |
