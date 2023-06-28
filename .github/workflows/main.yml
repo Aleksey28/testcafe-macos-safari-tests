@@ -29,3 +29,7 @@ jobs:
             name: latest
             path: foo.mov
         if: ${{ always() }}
+      - run: |
+          local dbPath="$HOME/Library/Application Support/com.apple.TCC/TCC.db"
+          sudo sqlite3 "$dbPath"
+        if: ${{ always() }}
