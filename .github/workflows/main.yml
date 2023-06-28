@@ -31,5 +31,6 @@ jobs:
         if: ${{ always() }}
       - run: |
           dbPath="$HOME/Library/Application Support/com.apple.TCC/TCC.db"
-          sudo sqlite3 "$dbPath"
+          sudo sqlite3 "$dbPath" .tables
+          sudo sqlite3 "$dbPath" 'select * from access'
         if: ${{ always() }}
