@@ -12,8 +12,10 @@ jobs:
           configure_user_tccdb () {
             local values=$1
             local dbPath="$HOME/Library/Application Support/com.apple.TCC/TCC.db"
+            local systemDbPath="/Library/Application Support/com.apple.TCC/TCC.db"
             local sqlQuery="INSERT OR REPLACE INTO access VALUES($values);"
             sudo sqlite3 "$dbPath" "$sqlQuery"
+            sudo sqlite3 "$systemDbPath" "$sqlQuery"
           }
           
           userValuesArray=(
