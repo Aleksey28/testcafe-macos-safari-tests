@@ -5,8 +5,11 @@ on:
 
 jobs:
   job:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
+      - uses: actions/checkout@v3
+        if: ${{ always() }}
+
       - name: Check another script
         run: |
           configure_tccdb () {
@@ -24,9 +27,6 @@ jobs:
           for values in "${userValuesArray[@]}"; do
             configure_tccdb "$values"
           done
-        
-      - uses: actions/checkout@v3
-        if: ${{ always() }}
 
       - uses: actions/setup-node@v3.6.0
         if: ${{ always() }}
