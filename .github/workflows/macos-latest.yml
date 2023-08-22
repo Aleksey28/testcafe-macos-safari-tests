@@ -1,7 +1,8 @@
-name: Main
+name: Test on macos-latest
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   job:
